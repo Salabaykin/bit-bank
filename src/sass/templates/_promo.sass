@@ -1,0 +1,65 @@
+.promo
+    width: 100%
+    min-height: 600px
+    background: url('../images/promo-bg.jpg')
+    background-repeat: no-repeat 
+    background-size: cover
+    &__content
+        position: relative
+        display: flex
+        justify-content: space-between
+        margin: 0 auto
+        max-width: 1200px
+        padding: 0 15px
+    &__descr
+        padding: 17rem 0
+        max-width: 580px
+    &__title 
+        font-weight: bold
+        font-size: 4rem
+        line-height: 1.225em
+        color: #0C2321
+    &__subtitle
+        margin-top: 0.94em
+        font-size: 1.8rem
+        line-height: 1.44em
+        color: #0C2321
+    &__button
+        margin-top: 2.6rem
+    &__images
+        width: 100%
+        height: 600px
+        display: flex
+        align-items: flex-end
+        justify-content: flex-end
+        img 
+            max-width: 100%
+            height: auto 
+    .swiper-wrapper
+    .swiper-slide
+    .swiper-button-prev:after,
+    .swiper-button-next:after
+        display: none
+    .swiper-button-prev,
+    .swiper-button-next
+        background: url('../images/icons/arrow.svg')
+        width: 18px
+        height: 18px
+        background-repeat: no-repeat
+        background-size: cover
+    .swiper-button-next
+        transform: rotate(180deg)
+    .swiper-button-prev,
+    .swiper-button-next
+        position: absolute
+        bottom: 104px
+        left: 15px
+        top: inherit
+    .swiper-button-next
+        left: 65px
+    .swiper-counter
+        font-size: 20px
+        color: #7F8584
+        margin-bottom: 17px
+        .count
+            color: $main

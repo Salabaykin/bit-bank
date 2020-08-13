@@ -1,0 +1,84 @@
+.header 
+    width: 100%
+    background-color: #ffffff
+    &__wrapper
+        margin: 0 auto
+        max-width: 1365px
+        padding: 0 15px
+        display: flex
+        justify-content: space-between
+    &__top
+        padding: 15px 0
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05)
+    &__bottom 
+        height: 80px
+
+.logo
+    display: flex
+    align-items: center
+    &__img 
+        width: 219px
+        height: 49px
+        img 
+            max-width: 100%
+            height: auto
+    &__info
+        margin-left: 2.357em
+        padding: 0.715em 0.715em 0.715em 2.357em
+        border-left: 1px solid #F3F3F3
+        font-size: 1.4rem
+        font-weight: 500
+        color: #7F8584
+    
+.nav-1
+    display: flex
+    align-items: center
+    &__ul
+        display: flex
+    &__list 
+        margin-right: 40px
+        a 
+            font-weight: 600
+            font-size: 1.6rem
+            color: #434848
+            transition: color 0.2s
+            &:hover
+                color: $main
+        &:last-child
+            margin-right: 0
+
+.nav-2
+    width: 100%
+    &__ul 
+        height: 80px
+        display: flex
+        align-items: center
+        justify-content: space-between
+    &__list 
+        padding-right: 15px
+        a 
+            padding-bottom: 1.93em
+            position: relative
+            font-weight: 600
+            font-size: 1.6rem
+            text-transform: uppercase
+            color: #434848
+            transition: color 0.2s
+            &::after
+                content: ''
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 100%
+                height: 2px
+                opacity: 0
+                background: $main
+                border-radius: 2px
+                transition: opacity 0.2s
+            &:hover
+                color: $main
+                &::after
+                    opacity: 1
+        &:last-child
+            padding-right: 0
+        
