@@ -1,0 +1,87 @@
+.popular-offers
+    margin-top: 70px
+    &__tabs
+        margin-top: 33px
+        display: flex
+        justify-content: space-between
+    &__list
+        width: 711px
+    &__item
+        margin-bottom: 10px
+        padding: 15px 25px
+        background: #FFFFFF
+        border: 1px solid #F3F3F3
+        border-radius: 5px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        transition: all 0.2s
+        &:hover
+            box-shadow: 0px 18px 20px rgba(0, 0, 0, 0.09)
+            .popular-offers__name-title
+                color: $main
+        &:last-child
+            margin-bottom: 0
+    &__wrapper
+        margin-right: 20px
+        display: flex
+        align-items: center
+    &__img
+        max-width: 155px
+        display: flex
+        align-items: center
+        img 
+            max-width: 100%
+    &__name
+        margin-left: 1.4375em
+        max-width: 15.625em
+        font-size: 1.6rem
+        &-bank
+            margin-bottom: 0.42857em
+            padding-left: 1.857em
+            position: relative
+            font-weight: 500
+            font-size: 1.4rem
+            color: #AFC9C9
+            &::before
+                content: ''
+                position: absolute
+                top: 1px
+                left: 0
+                width: 1.142857em
+                height: 1.142857em
+                background: url('../images/icons/museum.svg') no-repeat
+                background-size: cover
+        &-title
+            font-weight: bold
+            line-height: 1.3125em
+            transition: color 0.2s
+    &__info
+        max-width: 100px
+    &__rating
+        &-text
+            display: flex
+            justify-content: space-between
+        &-num span
+            font-weight: 500
+            font-size: 1.4rem
+            color: #8E9696
+        &-num strong 
+            font-weight: bold
+            font-size: 1.6rem
+        &-star
+            width: 100%
+    &__applications
+        margin-top: 19px
+        &-text
+            font-weight: 500
+            font-size: 1.4rem
+            color: #8E9696
+        &-num 
+            font-weight: bold
+            font-size: 1.6rem
+    &__card
+        margin-left: 40px
+        width: 420px
+
+    
