@@ -1,0 +1,44 @@
+.tabs
+    position: relative
+    margin: 0 auto
+    max-width: $main-width
+    padding: 0 15px
+    &__wrapper
+        position: absolute
+        top: -20px
+        left: 0
+        right: 0
+        z-index: 11
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        max-width: $main-width
+        padding: 0 15px
+    &-item
+        margin-bottom: 10px
+        width: 280px
+        height: 90px
+        padding: 0 28px
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.04)
+        display: flex
+        align-items: center
+        border: 1px solid #F2F2F2
+        background: #ffffff
+        border-radius: 5px
+        transition: all 0.2s
+        &:hover
+            border: 1px solid $main
+            background: $main
+            color: #ffffff
+            .tabs-item__icon
+                fill: #ffffff
+        &__icon
+            width: 30px
+            height: 30px
+            fill: #AFC9C9
+            transition: all 0.2s
+        &__text 
+            margin-left: 20px
+            font-weight: 500
+            font-size: 1.8rem
+            

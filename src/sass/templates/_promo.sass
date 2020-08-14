@@ -1,6 +1,6 @@
 .promo
     width: 100%
-    min-height: 600px
+    height: 600px
     background: url('../images/promo-bg.jpg')
     background-repeat: no-repeat 
     background-size: cover
@@ -9,21 +9,23 @@
         display: flex
         justify-content: space-between
         margin: 0 auto
-        max-width: 1200px
+        max-width: calc(#{$main-width} - 30px)
         padding: 0 15px
     &__descr
-        padding: 17rem 0
+        margin-top: 20px
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        justify-content: center
         max-width: 580px
     &__title 
         font-weight: bold
         font-size: 4rem
         line-height: 1.225em
-        color: #0C2321
     &__subtitle
         margin-top: 0.94em
         font-size: 1.8rem
         line-height: 1.44em
-        color: #0C2321
     &__button
         margin-top: 2.6rem
     &__images
@@ -35,8 +37,9 @@
         img 
             max-width: 100%
             height: auto 
-    .swiper-wrapper
-    .swiper-slide
+    &__arrows
+        display: flex
+        margin-top: 55px
     .swiper-button-prev:after,
     .swiper-button-next:after
         display: none
@@ -47,19 +50,38 @@
         height: 18px
         background-repeat: no-repeat
         background-size: cover
+        position: unset
+        margin-top: 0 
     .swiper-button-next
         transform: rotate(180deg)
-    .swiper-button-prev,
-    .swiper-button-next
-        position: absolute
-        bottom: 104px
-        left: 15px
-        top: inherit
-    .swiper-button-next
-        left: 65px
+        margin-left: 32px
     .swiper-counter
         font-size: 20px
         color: #7F8584
         margin-bottom: 17px
         .count
             color: $main
+    .swiper-pagination
+        left: 50%
+        bottom: 50%
+        transform: translate(-50%, 50%)
+        max-width: calc(#{$main-width} - 30px)
+        padding: 0 15px
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+    .swiper-pagination-bullets .swiper-pagination-bullet
+        margin: 15px 0
+    .swiper-pagination-bullet-active
+        position: relative
+        background: $main
+        transition: all 0.2s
+        &::after
+            content: ''
+            position: absolute
+            top: -100%
+            left: -100%
+            width: 24px
+            height: 24px
+            border: 1px solid $main
+            border-radius: 50%

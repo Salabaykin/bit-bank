@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function updSwiperNumericPagination() {
     this.el.querySelectorAll( '.swiper-counter' ).forEach(el => {
-      el.innerHTML = `<span class="count">${this.realIndex + 1}</span>/<span class="total">${this.el.slidesQuantity}</span>`;
+      el.innerHTML = `<span class="count">${this.realIndex >= 9 ? '' : '0'}${this.realIndex + 1}</span>/<span class="total">${this.el.slidesQuantity > 10 ? '' : '0'}${this.el.slidesQuantity}</span>`;
     });
   }
   
@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Swiper initialization
     new Swiper( node, {
       pagination: { 
-        el: node.querySelector('.swiper-pagination') 
+        el: node.querySelector('.swiper-pagination'),
+        clickable: true
       },
       on: { // Secondary pagination is update after initialization and after slide change
         init:        updSwiperNumericPagination,
