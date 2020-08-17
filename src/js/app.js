@@ -1,24 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  // Slider Swiper
-
+  // Promo-Swiper
   function updSwiperNumericPagination() {
     this.el.querySelectorAll( '.swiper-counter' ).forEach(el => {
       el.innerHTML = `<span class="count">${this.realIndex >= 9 ? '' : '0'}${this.realIndex + 1}</span>/<span class="total">${this.el.slidesQuantity > 10 ? '' : '0'}${this.el.slidesQuantity}</span>`;
     });
   }
   
-  document.querySelectorAll( '.swiper-container' ).forEach( function( node ) {
-    // Getting slides quantity before slider clones them
+  document.querySelectorAll( '.promo.swiper-container' ).forEach( function( node ) {
     node.slidesQuantity = node.querySelectorAll( '.swiper-slide' ).length;
-    
-    // Swiper initialization
     new Swiper( node, {
       pagination: { 
         el: node.querySelector('.swiper-pagination'),
         clickable: true
       },
-      on: { // Secondary pagination is update after initialization and after slide change
+      on: { 
         init:        updSwiperNumericPagination,
         slideChange: updSwiperNumericPagination
       },
@@ -30,8 +26,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  // Accordion 
+  // Articles-Swiper
+  const articlesSlide = document.querySelectorAll('.articles__tabs.swiper-container .swiper-slide');
+  console.log(articlesSlide);
+  if (articlesSlide.length > 4) {
+    var articlesSwiper = new Swiper('.articles__tabs.swiper-container', {
+      speed: 400,
+      slidesPerView: 4,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      autoHeight: true,
+    });
+  } 
 
+  // Accordion 
   var accordion = (function (element) {
     var _getItem = function (elements, className) { // функция для получения элемента с указанным классом
       var element = undefined;

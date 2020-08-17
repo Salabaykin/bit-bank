@@ -1,7 +1,9 @@
 .articles
+    position: relative
     margin-top: 70px
     &__list
         margin-top: 20px
+        padding-bottom: 70px
         display: flex
         justify-content: space-between
     &-item
@@ -47,4 +49,24 @@
             &:hover
                 &::after
                     right: 8px
+    .swiper-pagination
+        bottom: 20px
+        padding: 10px
+        display: flex
+        justify-content: center
+    .swiper-pagination-bullets .swiper-pagination-bullet
+        margin: 0 15px
+    .swiper-pagination-bullet-active
+        position: relative
+        background: $main
+        transition: all 0.2s
+        &::after
+            content: ''
+            position: absolute
+            top: -100%
+            left: -100%
+            width: 24px
+            height: 24px
+            border: 1px solid $main
+            border-radius: 50%
                 

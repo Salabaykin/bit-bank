@@ -132,6 +132,35 @@
                 <!-- /.promo__content -->
 
             </div>
+            <div class="swiper-slide" style="
+                background: url('../images/promo-rectangle.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: right;"
+            >
+
+                <div class="promo__content">
+                    <div class="promo__descr">
+                        <div class="swiper-counter"></div>
+                        <h1 class="promo__title">
+                            Кредиты на развитие малого бизнеса с низкими ставками
+                        </h1>
+                        <p class="promo__subtitle">
+                            У нас есть сотни предложений от банков с самыми выгодными процентными ставками
+                        </p>
+                        <a href="#" class="button promo__button">Узнать больше</a>
+                        <div class="promo__arrows">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                    <div class="promo__images">
+                        <img src="images/promo.png" alt="">
+                    </div>
+                </div>
+                <!-- /.promo__content -->
+
+            </div>
 
         </div>
         <!-- /.swiper-wrapper -->
@@ -470,10 +499,10 @@
         <div class="container">
             <h3 class="title">Полезные статьи</h3>
 
-            <div class="articles__tabs">
-                <div class="articles__list">
+            <div class="articles__tabs swiper-container">
+                <div class="articles__list swiper-wrapper">
 
-                    <div class="articles-item">
+                    <div class="articles-item swiper-slide">
                         <div class="articles-item__img">
                             <a href="#"><img src="images/articles/img-1.jpg" alt="articles"></a>
                         </div>
@@ -489,7 +518,7 @@
                     </div>
                     <!-- /.articles-item -->
 
-                    <div class="articles-item">
+                    <div class="articles-item swiper-slide">
                         <div class="articles-item__img">
                             <a href="#"><img src="images/articles/img-1.jpg" alt="articles"></a>
                         </div>
@@ -505,7 +534,7 @@
                     </div>
                     <!-- /.articles-item -->
 
-                    <div class="articles-item">
+                    <div class="articles-item swiper-slide">
                         <div class="articles-item__img">
                             <a href="#"><img src="images/articles/img-1.jpg" alt="articles"></a>
                         </div>
@@ -521,7 +550,7 @@
                     </div>
                     <!-- /.articles-item -->
 
-                    <div class="articles-item">
+                    <div class="articles-item swiper-slide">
                         <div class="articles-item__img">
                             <a href="#"><img src="images/articles/img-1.jpg" alt="articles"></a>
                         </div>
@@ -539,6 +568,8 @@
 
                 </div>
                 <!-- /.articles__list -->
+
+                <div class="swiper-pagination"></div>
             </div>
             <!-- /.articles__tabs -->
 
@@ -547,8 +578,38 @@
     </section>
     <!-- /.articles -->
 
+    <section class="calculator">
+        <div class="container">
+            <h3 class="title">Кредит на любые цели</h3>
+
+            <div class="calculator__wrapper">
+                <div class="calculator-range">
+                    <div class="calculator-range__item">
+                        
+							<div id="calculator-range__slide"></div>
+							<div class="calculator-range__price">
+								<input class="price-range__item" id="price-range-min" type="text">
+								<input class="price-range__item" id="price-range-max" type="text">
+							</div>
+						
+                    </div>
+                </div>
+                <!-- /.calculator-range -->
+
+                <div class="calculator-info">
+
+                </div>
+                <!-- /.calculator-info -->
+            </div>
+            <!-- /.calculator__wrapper -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /.calculator -->
+
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
     <script src="js/app.js"></script>
 
 </body>
