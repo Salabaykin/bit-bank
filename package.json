@@ -1,12 +1,12 @@
 {
-  "name": "bitbank",
+  "name": "ceramahit",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Salabaykin Evgeny <salabaykin@mail.ru>",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^4.0.2",
@@ -20,7 +20,6 @@
     "gulp-uglify": "^3.0.2"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1",
-    "slick-carousel": "^1.8.1"
+    "normalize.css": "^8.0.1"
   }
 }
