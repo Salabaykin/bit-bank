@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Articles-Swiper
   const articlesSlide = document.querySelectorAll('.articles__tabs.swiper-container .swiper-slide');
-  console.log(articlesSlide);
   if (articlesSlide.length > 4) {
     var articlesSwiper = new Swiper('.articles__tabs.swiper-container', {
       speed: 400,
@@ -41,6 +40,38 @@ document.addEventListener("DOMContentLoaded", function() {
       autoHeight: true,
     });
   } 
+
+  // About Us Swiper
+  const aboutusSlide = document.querySelectorAll('.aboutus-slider.swiper-container .swiper-slide');
+  if (document.documentElement.clientWidth > 991) {
+    var aboutusSwiper = new Swiper('.aboutus-slider.swiper-container', {
+      allowTouchMove: false,
+      slidesPerView: 4
+    });
+  } else {
+    var aboutusSwiper = new Swiper('.aboutus-slider.swiper-container', {
+      speed: 400,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      breakpoints: {
+        991: {
+          slidesPerView: 4
+        },
+        640: {
+          slidesPerView: 3
+        },
+        480: {
+          slidesPerView: 2
+        },
+        320: {
+          slidesPerView: 1
+        }
+      }
+    });
+  }
 
   // Accordion 
   var accordion = (function (element) {
@@ -84,5 +115,50 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var group = accordion();
   // group.init('#accordion');
+
+  var rangeSliderValueElementSum = document.getElementById('slider-range-value--sum');
+  var rangeSliderSum = document.getElementById('slider-range--sum');
+
+  noUiSlider.create(rangeSliderSum, {
+      start: [0, 100000],
+      step: 1000,
+      connect: true,
+      range: {
+          'min': [0],
+          'max': [400000]
+      }
+  });
+  rangeSliderSum.noUiSlider.on('update', function (values, handle) {
+      rangeSliderValueElementSum.innerHTML = values[handle];
+  });
+
+  var rangeSliderValueElementTerm = document.getElementById('slider-range-value--term');
+  var rangeSliderTerm = document.getElementById('slider-range--term');
+
+  noUiSlider.create(rangeSliderTerm, {
+      start: [0, 20],
+      connect: true,
+      step: 1,
+      range: {
+          'min': [0],
+          'max': [48]
+      }
+  });
+  rangeSliderTerm.noUiSlider.on('update', function (values, handle) {
+      rangeSliderValueElementTerm.innerHTML = values[handle];
+  });
+
+  const noUiOriginSum = document.querySelector('.range-item--sum .noUi-origin').style.display = 'none';
+  const noUiOriginTerm = document.querySelector('.range-item--term .noUi-origin').style.display = 'none';
+
+  // Menu 
+  const header = document.querySelector('.header'),
+        burgerMenu = document.querySelector('.burger-menu');
+
+  burgerMenu.addEventListener('click', function() {
+    burgerMenu.classList.toggle('active');
+    header.classList.toggle('active');
+    document.body.classList.toggle('hidden');
+  });
 
 });

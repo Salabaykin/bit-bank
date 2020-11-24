@@ -1,0 +1,59 @@
+.aboutus
+    margin-top: 70px
+    &__content
+        margin-top: 33px
+        p 
+            margin-bottom: 20px
+            font-weight: 500
+            font-size: 1.6rem
+            color: $txt-color
+            &:last-child
+                margin-bottom: 0
+    &-list
+        margin-top: 33px
+        padding-bottom: 50px
+        display: flex
+        justify-content: space-between
+    &-item
+        box-sizing: border-box
+        position: relative
+        padding: 28px
+        margin-right: 15px
+        width: 24% !important
+        min-height: 210px
+        background-color: #F7F9F9
+        border-radius: 5px
+        &:last-child
+            margin-right: 0
+        &__title
+            font-weight: 600
+            font-size: 1.6rem
+            color: $txt-color
+        &__num
+            position: absolute
+            bottom: 20px
+            left: 28px
+            font-weight: 600
+            font-size: 4.6rem
+            color: $main
+    &-slider
+        .swiper-pagination
+            bottom: 30px
+            padding: 10px
+            display: flex
+            justify-content: center
+        .swiper-pagination-bullets .swiper-pagination-bullet
+            margin: 0 15px
+        .swiper-pagination-bullet-active
+            position: relative
+            background: $main
+            transition: all 0.2s
+            &::after
+                content: ''
+                position: absolute
+                top: -100%
+                left: -100%
+                width: 24px
+                height: 24px
+                border: 1px solid $main
+                border-radius: 50%

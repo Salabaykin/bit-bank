@@ -1,16 +1,21 @@
 .header 
+    position: fixed
+    z-index: 100
     width: 100%
     background-color: #ffffff
     &__wrapper
+        position: relative
         margin: 0 auto
         max-width: 1365px
         padding: 0 15px
         display: flex
         justify-content: space-between
+        align-items: center
     &__top
         padding: 16px 0
         box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05)
     &__bottom 
+        position: relative
         height: 75px
 
 .logo
@@ -29,7 +34,46 @@
         font-size: 1.4rem
         font-weight: 500
         color: #7F8584
-    
+
+.burger-menu
+    display: none 
+    flex-direction: column
+    justify-content: center
+    width: 36px
+    height: 36px
+    cursor: pointer
+    span
+        display: block
+        width: 100%
+        height: 2px
+        background: #0C2321
+        transition: all 0.2s
+        &:nth-child(1)
+        &:nth-child(2)
+            width: 90%
+            margin-top: 8px
+            margin-bottom: 8px
+        &:nth-child(3)
+            width: 70%
+    &:hover
+        span
+            &:nth-child(2)
+                width: 100%
+            &:nth-child(3)
+                width: 100%
+
+.burger-menu.active
+    span
+        &:nth-child(1)
+            transform: rotate(45deg)
+        &:nth-child(2)
+            display: none
+        &:nth-child(3)
+            width: 100%
+            margin-top: -2px
+            transform: rotate(-45deg)
+            
+
 .nav-1
     display: flex
     align-items: center
@@ -81,4 +125,120 @@
                     opacity: 1
         &:last-child
             padding-right: 0
-        
+
+@media ( max-width: 1210px )
+
+    .nav-1
+        display: none
+    .burger-menu
+        display: flex
+        position: absolute
+        top: 6px
+        right: 15px
+    .header__bottom
+        display: none
+
+    .header.active 
+        z-index: 100
+        background: #F0F4F4
+        height: 100vh
+        overflow-y: auto
+        .header__top
+            box-shadow: none
+            padding-bottom: 0
+        .header__wrapper
+            position: relative
+            display: flex
+            flex-direction: column
+            align-items: start
+        .nav-1
+            margin-top: 20px
+            padding: 30px
+            display: block
+            width: 100%
+            border-bottom: 1px solid #E5EFEC
+            &__ul
+                flex-direction: column
+            &__list 
+                margin-bottom: 30px
+                a 
+                    font-weight: 600
+                    font-size: 20px
+                    line-height: 24px
+                    color: #434848
+                &:last-child
+                    margin-bottom: 0
+        .header__bottom
+            display: block
+            position: relative
+            z-index: 100
+            padding-top: 35px
+        .nav-2
+            padding: 0 30px
+            &__ul
+                flex-direction: column
+                align-items: start
+                height: 100%
+            &__list
+                margin-bottom: 25px
+                a 
+                    font-weight: 600
+                    font-size: 1.6rem
+                    text-transform: uppercase
+                    color: #434848
+                    &::after
+                        display: none
+                    &:hover
+                        color: $main
+                &:last-child
+                    margin-bottom: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // .header__bottom
+    //     display: block
+    //     position: fixed
+    //     top: 80px
+    //     left: 0
+    //     z-index: 100
+    //     background: #F0F4F4
+    //     width: 100%
+    //     height: 100%
+    //     padding: 30px
+    // .burger-menu
+    //     display: flex 
+    // .header__bottom
+    //     .header__wrapper 
+    //         display: flex
+    //         flex-direction: column
+    // .mobile-nav-1
+    //     display: block
+    //     width: 100%
+    //     &__ul
+    //         width: 100%
+    //     &__list
+    //         margin-bottom: 30px
+    //         a 
+    //             font-weight: 600
+    //             font-size: 20px
+    //             line-height: 24px
+    //             color: #434848
+
+    // .nav-2__ul
+    //     display: flex
+    //     flex-direction: column
