@@ -20,7 +20,7 @@
         flex-direction: column
         align-items: flex-start
         justify-content: center
-        max-width: 580px
+        max-width: 50%
     &__title 
         font-weight: bold
         font-size: 4rem
@@ -88,3 +88,75 @@
             height: 24px
             border: 1px solid $main
             border-radius: 50%
+
+@media ( max-width: 1024px )
+    .promo .swiper-slide 
+        background-image: none !important
+    .promo 
+        &__descr
+            max-width: 45%
+            margin-bottom: 10px
+
+@media ( max-width: 991px )
+    .promo
+        &__content
+            flex-direction: column
+            padding: 0 20px
+        &__descr
+            max-width: 100%
+            align-items: center
+        &__subtitle
+            text-align: center
+        &__arrows
+            display: none
+        &__images
+            height: auto
+            justify-content: center
+        &__title
+            text-align: center
+        .swiper-pagination
+            padding: 0 20px
+            bottom: 15%
+        .swiper-wrapper
+            height: auto !important
+
+@media ( max-width: 768px )
+    .logo
+        &__img
+            width: 150px
+            height: auto
+        &__info 
+            display: none
+    
+    .header__wrapper
+        padding: 0 20px
+
+    .burger-menu
+        top: 0
+        right: 20px
+
+    .promo
+        &__title
+            font-size: 25px
+        &__descr 
+            margin-top: 60px
+        .swiper-counter
+            font-size: 18px
+        &__subtitle
+            font-size: 16px
+
+@media ( max-width: 576px )
+    .promo
+        &__descr
+            align-items: stretch
+        &__images
+            width: 85%
+        .swiper-counter
+            text-align: center
+
+    
+
+    
+
+    
+    

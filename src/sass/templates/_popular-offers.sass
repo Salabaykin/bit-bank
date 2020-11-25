@@ -7,6 +7,7 @@
     &__list
         width: 711px
     &__item
+        width: 100%
         margin-bottom: 10px
         padding: 15px 25px
         background: #FFFFFF
@@ -27,7 +28,7 @@
         display: flex
         align-items: center
     &__img
-        max-width: 155px
+        min-width: 155px
         display: flex
         align-items: center
         img 
@@ -83,5 +84,69 @@
     &__card
         margin-left: 40px
         width: 420px
+        
 
+@media ( max-width: 1024px )
+    .popular-offers
+        &__img
+            min-width: 90px
+            width: 90px
+        &__item
+            padding: 13px
+        &__name
+            margin-left: 1em
+            max-width: 28em
+            font-size: 1.4rem
+        &__card
+            margin-left: 20px
+
+@media ( max-width: 991px )
+    .popular-offers
+        margin-top: 40px
+        &__tabs
+            flex-direction: column
+        &__list
+            width: 100%
+        &__card
+            margin: auto
+            padding-top: 20px
+
+@media ( max-width: 840px )
+    .popular-offers
+        &__card
+            width: 100%
+
+@media ( max-width: 576px )
+    .popular-offers
+        &__item 
+            flex-direction: column
+            align-items: flex-start
+        &__wrapper
+            flex-direction: column
+            align-items: flex-start
+            width: 100%
+        &__name 
+            position: relative
+            margin-left: 0
+            max-width: 100%
+            width: 100%
+        &__name-bank
+            margin: 0
+            position: absolute
+            top: -40px
+            left: 100px
+        &__name-title
+            margin-top: 5px
+        &__wrapper 
+            margin-right: 0
+        &__rating
+            display: flex
+            justify-content: space-between
+        &__applications 
+            margin-top: 0
+        &__info 
+            margin-top: 10px
+            max-width: 100%
+            width: 100%
+    
     

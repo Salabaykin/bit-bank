@@ -25,3 +25,23 @@
             font-weight: 500
             font-size: 1.4rem
             color: #7F8584
+
+
+@media ( max-width: 991px )
+    .ratings
+        &__wrapper 
+            margin-top: 15px
+            margin-bottom: 40px
+
+@media ( max-width: 768px )
+    .ratings
+        &__wrapper
+            flex-direction: column
+        &-item 
+            width: 100%
+            min-height: auto
+            padding: 20px
+            margin-right: 0
+            margin-bottom: 10px
+            &__img
+                display: none

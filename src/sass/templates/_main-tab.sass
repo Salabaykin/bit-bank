@@ -1,0 +1,57 @@
+.main
+    &-tabs 
+        &__list
+            display: flex
+            border-bottom: 1px solid #F3F3F3
+            overflow: auto
+        &__link 
+            font-family: 'Gilroy', sans-serif
+            position: relative
+            cursor: pointer
+            background-color: transparent 
+            border: none 
+            padding: 0
+            padding-bottom: 14px
+            margin-right: 48px
+            text-align: center
+            font-weight: 500
+            font-size: 1.6rem
+            white-space: nowrap
+            transition: all 0.2s
+            &::before
+                content: ''
+                position: absolute
+                bottom: 0
+                left: 0
+                height: 3px
+                width: 100%
+                background: $main 
+                opacity: 0
+            &:hover
+                color: $main
+            &:last-child
+                margin-right: 0
+        &__body
+            width: 100%
+            height: 100%
+            padding-top: 20px
+        &__content 
+            display: none
+
+.main-tabs__link.active
+    background-color: #ffffff
+    color: $main 
+    &::before
+        opacity: 1
+
+.main-tabs__content.active 
+    max-height: 720px
+    display: flex
+    flex-wrap: wrap
+    animation: opacity 0.9s ease
+ 
+@keyframes opacity 
+    0% 
+       opacity: 0
+    100% 
+       opacity: 1

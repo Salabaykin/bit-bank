@@ -18,8 +18,6 @@
         box-sizing: border-box
         position: relative
         padding: 28px
-        margin-right: 15px
-        width: 24% !important
         min-height: 210px
         background-color: #F7F9F9
         border-radius: 5px
@@ -37,6 +35,7 @@
             font-size: 4.6rem
             color: $main
     &-slider
+        padding-bottom: 35px
         .swiper-pagination
             bottom: 30px
             padding: 10px
@@ -57,3 +56,19 @@
                 height: 24px
                 border: 1px solid $main
                 border-radius: 50%
+
+
+@media (max-width: 991px)
+    .aboutus
+        margin-top: 40px
+        &__content 
+            margin-top: 20px
+            p 
+                margin-bottom: 12px
+
+@media ( max-width: 768px )
+    .aboutus-item
+        padding: 20px
+    .aboutus-item__num
+        left: 20px
+        bottom: 15px

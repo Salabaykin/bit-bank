@@ -8,6 +8,7 @@
     font-size: 1.6rem
     color: #FFFFFF
     transition: background 0.2s
+    text-align: center
     &--gray
         background: #AFC9C9
     &:hover
@@ -17,6 +18,13 @@ h3.title
     font-weight: bold
     font-size: 3rem
     line-height: 1.233em
+
+@media ( max-width: 768px )
+    .button
+        padding-left: 2em
+        padding-right: 2em
+    h3.title 
+        font-size: 2rem
 
 .hidden 
     overflow: hidden

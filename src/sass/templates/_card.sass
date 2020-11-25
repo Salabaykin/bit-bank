@@ -10,15 +10,17 @@
     &__main-title
         margin-bottom: 30px
         font-weight: bold
-        font-size: 20px
+        font-size: 2rem
         text-align: center
         text-transform: uppercase
     &__img
+        display: flex
+        justify-content: center
         padding-top: 27px
         background: url('../images/card/card-bg.svg') no-repeat
         background-position: center top
         width: 100%
-        min-height: 253px
+        //min-height: 253px
         img 
             max-width: 100%
     &__wrapper
@@ -30,15 +32,47 @@
     &__right
         width: 120px
         margin-left: 20px
+    &__left
+        margin-left: 0
+    &__right
+        .card__title,
+        .card__subtitle
+            text-align: right
     &__text
         margin-bottom: 18px
         &:last-child
             margin-bottom: 0
     &__title
         font-weight: 500
-        font-size: 14px
+        font-size: 1.4rem
         color: #8E9696
     &__subtitle
         margin-top: 3px
         font-weight: bold
-        font-size: 16px
+        font-size: 1.6rem
+
+
+@media ( max-width: 1024px )
+    .card
+        &__main-title
+            font-size: 1.8rem
+
+@media ( max-width: 768px )
+    .card 
+        padding: 25px 23px 30px 23px
+        &__text 
+            margin-bottom: 14px
+
+@media ( max-width: 430px )
+    .card 
+        &__img 
+            background-size: 90%
+        &__wrapper 
+            padding: 0
+        &__right 
+            margin-left: 7px
+
+@media ( max-width: 390px )
+    .card 
+        &__img 
+            padding-top: 20px

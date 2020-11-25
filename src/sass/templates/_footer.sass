@@ -26,3 +26,19 @@
     transition: color 0.2s
     &:hover
         color: $main
+
+
+@media ( max-width: 1024px )
+    .footer 
+        &-head
+            flex-direction: column
+            &__info 
+                padding-top: 10px
+                padding-left: 0
+    .footer-logo
+        margin-bottom: 23px
+    .footer-policy,
+    .footer-agreement
+        margin-bottom: 14px
+    .footer-soc
+        margin-top: 15px

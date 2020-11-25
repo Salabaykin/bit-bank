@@ -28,29 +28,119 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Articles-Swiper
   const articlesSlide = document.querySelectorAll('.articles__tabs.swiper-container .swiper-slide');
-  if (articlesSlide.length > 4) {
+  if (articlesSlide.length <= 4 && document.documentElement.clientWidth > 991) {
+    var articlesSwiper = new Swiper('.articles__tabs.swiper-container', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      breakpoints: {
+        991: {
+          slidesPerView: 4,
+          loop: false
+        },
+        768: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          loopFillGroupWithBlank: true,
+          loop: true
+        },
+        576: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          loopFillGroupWithBlank: true,
+          loop: true
+        },
+        320: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          loopFillGroupWithBlank: true,
+          loop: true
+        }
+      }
+    });
+  } else if (document.documentElement.clientWidth <= 991) {
     var articlesSwiper = new Swiper('.articles__tabs.swiper-container', {
       speed: 400,
-      slidesPerView: 4,
+      spaceBetween: 10,
       pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
         clickable: true
       },
       autoHeight: true,
+      breakpoints: {
+        991: {
+          slidesPerView: 4,
+          loop: false
+        },
+        768: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          loopFillGroupWithBlank: true,
+          loop: true
+        },
+        576: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          loopFillGroupWithBlank: true,
+          loop: true
+        },
+        320: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          loopFillGroupWithBlank: true,
+          loop: true
+        }
+      }
     });
-  } 
+  } else if (articlesSlide.length > 4 && document.documentElement.clientWidth > 991) {
+    var articlesSwiper = new Swiper('.articles__tabs.swiper-container', {
+      speed: 400,
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      autoHeight: true,
+      breakpoints: {
+        991: {
+          slidesPerView: 4,
+          loop: false
+        },
+        768: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          loopFillGroupWithBlank: true,
+          loop: true
+        },
+        576: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          loopFillGroupWithBlank: true,
+          loop: true
+        },
+        320: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          loopFillGroupWithBlank: true,
+          loop: true
+        }
+      }
+    });
+  }
 
   // About Us Swiper
   const aboutusSlide = document.querySelectorAll('.aboutus-slider.swiper-container .swiper-slide');
   if (document.documentElement.clientWidth > 991) {
     var aboutusSwiper = new Swiper('.aboutus-slider.swiper-container', {
       allowTouchMove: false,
+      spaceBetween: 15,
       slidesPerView: 4
     });
   } else {
     var aboutusSwiper = new Swiper('.aboutus-slider.swiper-container', {
       speed: 400,
+      spaceBetween: 15,
       pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
@@ -58,64 +148,73 @@ document.addEventListener("DOMContentLoaded", function() {
       },
       breakpoints: {
         991: {
-          slidesPerView: 4
+          slidesPerView: 4,
+          loop: false
         },
-        640: {
-          slidesPerView: 3
+        768: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          loopFillGroupWithBlank: true,
+          loop: true
         },
-        480: {
-          slidesPerView: 2
+        576: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          loopFillGroupWithBlank: true,
+          loop: true
         },
         320: {
-          slidesPerView: 1
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          loopFillGroupWithBlank: true,
+          loop: true
         }
       }
     });
   }
 
-  // Accordion 
-  var accordion = (function (element) {
-    var _getItem = function (elements, className) { // функция для получения элемента с указанным классом
-      var element = undefined;
-      elements.forEach(function (item) {
-        if (item.classList.contains(className)) {
-          element = item;
-        }
-      });
-      return element;
-    };
-    return function () {
-      var _mainElement = {}, // .accordion
-        _items = {}, // .accordion-item
-        _contents = {}; // .accordion-item-content 
-      var _actionClick = function (e) {
-        if (!e.target.classList.contains('accordion-item__header')) { // прекращаем выполнение функции если кликнули не по заголовку
-          return;
-        }
-        e.preventDefault(); // отменям стандартное действие
-        // получаем необходимые данные
-        var header = e.target;
-        var item = header.parentElement;
-        item.classList.toggle('show');
-      },
-      _setupListeners = function () {
-        // добавим к элементу аккордиона обработчик события click
-        _mainElement.addEventListener('click', _actionClick);
-      };
-
-      return {
-        init: function (element) {
-          _mainElement = (typeof element === 'string' ? document.querySelector(element) : element);
-          _items = _mainElement.querySelectorAll('.accordion-item');
-          _setupListeners();
-        }
-      }
+  // Tabs
+  class Tabs {
+    constructor(button, content) {
+      this.button = button;
+      this.content = content;
     }
-  })();
 
-  var group = accordion();
-  // group.init('#accordion');
+    render() {
+      const showTabs = (el) => {
+        const btnTarget = el.currentTarget;
+        const country = btnTarget.dataset.country;
+        this.content.forEach((el) => {
+          this.removeClass(el);
+        });
+        this.button.forEach((el) => {
+          this.removeClass(el);
+        });
+        document.querySelector('#' + country).classList.add('active');
+        btnTarget.classList.add('active');
+      }
+      
+      this.button.forEach(function(el) {
+        el.addEventListener("click", showTabs);
+      });
+    }
 
+    removeClass(el) {
+      el.classList.remove('active');
+    }
+
+  }
+  const offersTabLinks = document.querySelectorAll('.offers-tabs-link'),
+        offersTabContent = document.querySelectorAll('.offers-tabs-content');
+  const offersTabs = new Tabs(offersTabLinks, offersTabContent);
+  offersTabs.render();
+
+  const articlesTabLinks = document.querySelectorAll('.articles-tabs-link'),
+        articlesTabContent = document.querySelectorAll('.articles-tabs-content');
+  const articlesTabs = new Tabs(articlesTabLinks, articlesTabContent);
+  articlesTabs.render();
+
+  // Range
   var rangeSliderValueElementSum = document.getElementById('slider-range-value--sum');
   var rangeSliderSum = document.getElementById('slider-range--sum');
 
