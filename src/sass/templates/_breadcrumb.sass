@@ -1,0 +1,30 @@
+.breadcrumb
+    padding: 13px 0
+    background: $main
+    &__list
+        li
+            position: relative
+            display: inline
+            font-size: 1.2rem
+            line-height: 14px
+            padding-left: 25px
+            &::after
+                content: '/'
+                position: absolute
+                top: 1px
+                right: -17px
+                color: #9CE2DD
+            &:first-child
+                padding-left: 0
+            &:last-child
+                &::after
+                    display: none
+        li.active
+            color: #9CE2DD
+        a   
+            color: #FFFFFF
+
+
+@media ( max-width: 768px )
+    .breadcrumb
+        display: none

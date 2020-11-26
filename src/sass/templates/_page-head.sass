@@ -1,0 +1,37 @@
+.page-head
+    background: linear-gradient(90deg, #F0F4F4 0%, #E8EFEF 100%)
+    &__wrapper
+        display: flex
+    &__content
+        width: 50%
+        padding: 60px 0
+    &__img 
+        width: 50%
+        display: flex
+        align-items: flex-end
+        img 
+            max-width: 100%
+    &__title
+        font-weight: bold
+        font-size: 4rem
+        color: $txt-color
+    &__descr 
+        margin-top: 10px
+        font-size: 1.8rem
+        color: $txt-color
+
+
+@media ( max-width: 768px )
+    .page-head
+        &__wrapper
+            flex-direction: column
+        &__content
+            padding-bottom: 15px
+            width: 100%
+            text-align: center
+        &__title
+            font-size: 2.5rem
+        &__descr 
+            font-size: 1.6rem
+        &__img 
+            width: 100%

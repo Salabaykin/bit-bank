@@ -1,0 +1,41 @@
+.similar-offers
+    margin-top: 40px
+    &__wrapper
+        margin-top: 20px
+
+.similar-offers-slider
+    @media ( max-width: 1140px )
+        padding-bottom: 60px
+    &__button
+        margin-top: 18px
+        font-size: 1.4rem
+        background: #AFC9C9
+    .card 
+        width: auto
+        padding: 20px
+        &__main-title
+            font-size: 1.5rem
+        &__img 
+            width: 90%
+            background-size: 90%
+    .swiper-pagination
+        bottom: 0
+        padding: 10px
+        display: flex
+        justify-content: center
+    .swiper-pagination-bullets .swiper-pagination-bullet
+        margin: 0 15px
+    .swiper-pagination-bullet-active
+        position: relative
+        background: $main
+        transition: all 0.2s
+        &::after
+            content: ''
+            position: absolute
+            top: -100%
+            left: -100%
+            width: 24px
+            height: 24px
+            border: 1px solid $main
+            border-radius: 50%
+    

@@ -1,0 +1,24 @@
+.tags
+    margin-top: 40px
+    &__wrapper
+        display: flex
+        flex-wrap: wrap 
+        padding-bottom: 27px
+        border-bottom: 1px solid #F3F3F3
+    &__button
+        margin-right: 8px
+        margin-bottom: 8px
+        background: #AFC9C9
+        box-shadow: none
+        font-size: 1.2rem
+        &:last-child
+            margin-right: 0
+        &--active
+            background: $main 
+
+    
+@media ( max-width: 768px )
+    .tags
+        margin-top: 27px
+        &__button
+            padding: 12px 20px

@@ -1,0 +1,72 @@
+.search-offers
+    padding: 20px 0
+    background: #FFFFFF
+    box-shadow: 0px 7px 17px rgba(0, 0, 0, 0.04)
+
+.offers-form
+    display: flex
+    align-items: flex-end
+    justify-content: space-between
+    &__item 
+        width: 180px
+        margin-right: 12px
+        &:last-child
+            margin-right: 0
+    &__label 
+        font-weight: 600
+        font-size: 1.4rem
+        color: $txt-color
+    &__input,
+    &__select
+        margin-top: 8px
+    &__input input,
+    &__select select
+        width: 100%
+        padding: 15px 25px
+        background: #EEF3F2
+        border: 1px solid #EEF3F2
+        border-radius: 30px
+        font-family: 'Gilroy'
+        font-weight: 500
+        font-size: 1.4rem
+        color: #9CABAB
+        &:focus
+            border: 1px solid $main
+            color: $txt-color
+    &__select
+        position: relative 
+        &::after
+            content: ''
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            right: 17px
+            background: url('../images/icons/arrow-select.svg')
+            width: 10px
+            height: 10px
+    &__button
+        padding: 1.2em 2em
+        box-shadow: none
+        font-size: 1.4rem
+
+
+@media ( max-width: 1210px )
+    .search-offers
+        padding-top: 8px
+    .offers-form
+        flex-wrap: wrap
+        &__item
+            width: 32%
+            margin-top: 12px
+            margin-right: 0
+        &__button 
+            width: 32%
+
+@media ( max-width: 768px )
+    .offers-form
+        flex-wrap: wrap
+        &__item
+            width: 100%
+        &__button 
+            margin-top: 20px
+            width: 100%

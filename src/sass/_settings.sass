@@ -45,10 +45,25 @@ a
     text-decoration: none
     color: $txt-color
 
-a, img, li, button, span
+a, img, li, button, span, select
     text-decoration: none
     outline: none
     user-select: none
     -webkit-user-select: none
     -moz-user-select: none
     -ms-user-select: none
+
+select 
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+
+select::-ms-expand 
+    display: none
+
+.main 
+    padding-top: 155px
+    @media ( max-width: 1210px )
+        padding-top: 80px
+    @media ( max-width: 768px )
+        padding-top: 68px

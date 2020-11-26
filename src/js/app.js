@@ -173,6 +173,36 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  // Similar Offers Swiper
+  if (document.documentElement.clientWidth > 1140) {
+    var similarOffersSwiper = new Swiper('.similar-offers-slider.swiper-container', {
+      allowTouchMove: false,
+      spaceBetween: 20,
+      slidesPerView: 4
+    });
+  } else {
+    var similarOffersSwiper = new Swiper('.similar-offers-slider.swiper-container', {
+      speed: 400,
+      spaceBetween: 15,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      breakpoints: {
+        991: {
+          slidesPerView: 3
+        },
+        768: {
+          slidesPerView: 2
+        },
+        320: {
+          slidesPerView: 1
+        }
+      }
+    });
+  }
+
   // Tabs
   class Tabs {
     constructor(button, content) {
