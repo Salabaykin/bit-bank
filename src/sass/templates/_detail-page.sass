@@ -1,0 +1,84 @@
+.detail-page
+    padding: 55px 0
+    &-head
+        background: linear-gradient(90deg, #F0F4F4 0%, #E8EFEF 100%)
+        &__wrapper
+            display: flex
+            padding: 55px 0
+        &__content
+            width: 50%
+            padding-right: 100px
+        &__top
+            display: flex
+            align-items: center
+        &__bottom
+            margin-top: 34px
+            display: flex
+            justify-content: space-between
+        &__bank-name
+            position: relative
+            font-weight: 500
+            font-size: 14px
+            color: $txt-color
+            padding-left: 26px
+            &::before
+                content: ''
+                position: absolute
+                top: 0
+                left: 0
+                width: 16px
+                height: 16px
+                background: url('../images/icons/museum.svg')
+                background-size: cover 
+                background-repeat: no-repeat
+        &__rating
+            margin-left: 37px
+            font-size: 1.6rem
+            color: $txt-color
+        &__title
+            font-weight: bold
+            font-size: 4rem
+            color: $txt-color
+        &__info
+            padding: 20px 0 30px 0
+        &__img 
+            width: 50%
+            display: flex
+            align-items: center
+            justify-content: center
+            img 
+                max-width: 100%
+                background: url(../images/card-bg-dark.svg) no-repeat
+                background-size: 77%
+                background-position-x: center
+                background-position-y: 0
+                padding: 45px 0 0 0
+        &__form 
+            display: flex
+        &__input
+            font-family: 'Gilroy'
+            padding: 18px 25px
+            margin-right: 10px
+            flex: 1
+            background: #FFFFFF
+            border: 1px solid #DEE9E8
+            box-shadow: 0px 17px 35px rgba(0, 0, 0, 0.04)
+            border-radius: 30px
+            font-weight: 500
+            font-size: 1.4rem
+            &::-webkit-input-placeholder
+                color:#9CABAB
+            &::-moz-placeholder
+                color:#9CABAB
+            &:-moz-placeholder
+                color:#9CABAB
+            &:-ms-input-placeholder
+                color:#9CABAB
+        &__quantity
+            font-weight: 500
+            font-size: 1.4rem
+            color: #8E9696
+            span 
+                margin-left: 8px
+                font-weight: bold
+                font-size: 1.6rem
