@@ -1,0 +1,64 @@
+.nav
+    flex: 1
+    min-width: 320px
+    height: auto
+    padding: 30px 0 35px 0
+    background: #FFFFFF
+    box-shadow: 0px 6px 26px rgba(0, 0, 0, 0.07)
+    border-radius: 5px
+    &__ul
+        position: relative
+        padding-bottom: 23px
+        margin-bottom: 27px
+        &::after
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 30px
+            right: 30px
+            height: 1px
+            background: #F3F3F3
+    &__li 
+        padding: 0 30px
+        margin-bottom: 20px
+        border-left: 2px solid transparent
+        border-right: 2px solid transparent
+        transition: all 0.2s
+        span 
+            margin-left: 3px
+            font-weight: 500
+            font-size: 1.6rem
+            color: #8E9696
+        &:hover
+            border-left: 2px solid $main
+            border-right: 2px solid $main
+        &:last-child
+            margin-bottom: 0
+    &__link 
+        display: flex
+        width: 100%
+        font-weight: 500
+        font-size: 1.8rem
+        line-height: 33px
+        color: #434848
+    
+.nav__li.active
+    border-left: 2px solid $main
+    border-right: 2px solid $main
+    .nav__link
+        color: $txt-color
+        font-weight: bold
+
+.nav-prev
+    padding: 0 30px 0
+    text-align: center
+    &__img 
+        margin-bottom: 10px
+        background: url('../images/card/card-bg.svg') no-repeat
+        background-size: 77%
+        background-position-x: center
+        background-position-y: 0
+        padding: 20px 0 0 0
+        img 
+            max-width: 100%
+    &__button
