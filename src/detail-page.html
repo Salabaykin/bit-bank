@@ -139,7 +139,7 @@
                         </div>
 
                         <form action="#" class="detail-page-head__form">
-                            <input type="text" name="" class="detail-page-head__input" placeholder="Укажите желаемый лимит">
+                            <input type="text" name="limit" class="detail-page-head__input" placeholder="Укажите желаемый лимит">
                             <button class="button detail-page-head__butoon">Оформить сейчас</button>
                         </form>
 
@@ -249,11 +249,367 @@
                             <h3 class="title">Тарифы и условия кредитования клиентов</h3>
 
                             <div class="tariffs__wrapper">
-                                
+
+                                <div class="tariffs-item">
+                                    <div class="tariffs-item__txt">Платежная система</div>
+                                    <div class="tariffs-item__descr">MasterCard</div>
+                                </div>
+                                <!-- /.tariffs-item -->
+
+                                <div class="tariffs-item">
+                                    <div class="tariffs-item__txt">Тип карты</div>
+                                    <div class="tariffs-item__descr">World</div>
+                                </div>
+                                <!-- /.tariffs-item -->
+
+                                <div class="tariffs-item">
+                                    <div class="tariffs-item__txt">Срок действия</div>
+                                    <div class="tariffs-item__descr">4 года</div>
+                                </div>
+                                <!-- /.tariffs-item -->
+
+                                <div class="tariffs-item">
+                                    <div class="tariffs-item__txt">Минимальный лимит</div>
+                                    <div class="tariffs-item__descr">0 руб. - снятие собственных средств в банкоматах МТС Банка; <br>3,9% + 350 рублей - снятие кредитных средств в банкоматах МТС Банка; <br>4% - снятие кредитных средств в кассах МТС Банка.</div>
+                                </div>
+                                <!-- /.tariffs-item -->
+
+                                <div class="all-block">
+                                    <div class="all-block__txt">
+                                        Узнайте больше обо всех тарифах кредита и доступными к нему документами!
+                                    </div>
+                                    <div class="all-block__block">
+                                        <a href="#" class="button all-block__button all-block__button--doc">Документы</a>
+                                        <a href="#" class="button all-block__button all-block__button--all">Все тарифы</a>
+                                    </div>
+                                </div>
+                                <!-- /.all-block -->
+
                             </div>
                             <!-- /.tariffs__wrapper -->
+                            
                         </div>
                         <!-- /.tariffs -->
+
+                        <div class="issue-card">
+                            <h3 class="title">Как оформить карту?</h3>
+                            
+                            <div class="issue-card__wrapper">
+
+                                <ol class="issue-card__list">
+                                    <li><span>Подать заявку на оформление карты Райфайзен Банка можно на официальном сайте самого банка Райфайзен.</span></li>
+                                    <li><span>Заполните форму с персональной информацией. Необходимо указать фамилию, имя, отчество, а также контактные телефоны для связи.</span></li>
+                                    <li><span>После заполнения нажмите «Отправить».</span></li>
+                                    <li><span>Обработав заявку, система пришлет уведомление на указанный контактный номер и электронную почту.</span></li>
+                                    <li><span>В удобное время необходимо подойти в отделение банка Райфайзен и оформить свою карту.</span></li>
+                                </ol>
+                                <!-- /.issue-card__list -->
+
+                            </div>
+                            <!-- /.issue-card__wrapper -->
+                        </div>
+                        <!-- /.issue-card -->
+                        
+                        <div class="requirements">
+                            <span class="detail-page__anchor" id="requirements">Требования</span>
+                            <h3 class="title">Калькулятор первоначального кредитного лимита</h3>
+
+                            <div class="requirements__wrapper">
+
+                                <div class="requirements-quiz swiper-container">
+
+                                    <div class="swiper-wrapper">
+                                        
+                                        <div class="swiper-slide">
+
+                                            <div class="quiz-item">
+
+                                                <div class="quiz-item__head">
+                                                    <div class="quiz-item__head-wrap">
+                                                        <div class="quiz-item__ques-num">Вопрос №1</div>
+                                                        <h4 class="quiz-item__title">Укажите Ваш возраст</h4>
+                                                    </div>
+                                                    <div class="swiper-counter"></div>
+                                                </div>
+                                                <!-- /.quiz-item__head -->
+
+                                                <div class="quiz-item__content">
+
+                                                    <div class="quiz-item__block">
+                                                        <input type="radio" name="radio" id="checkbox-1" value="от 18 - 22 лет">
+                                                        <label for="checkbox-1">от 18 - 22 лет</label>
+                                                    </div>
+
+                                                    <div class="quiz-item__block">
+                                                        <input type="radio" name="radio" id="checkbox-2" value="от 23 - 27 лет">
+                                                        <label for="checkbox-2">от 23 - 27 лет</label>
+                                                    </div>
+
+                                                    <div class="quiz-item__block">
+                                                        <input type="radio" name="radio" id="checkbox-3" value="от 27 - 35 лет">
+                                                        <label for="checkbox-3">от 27 - 35 лет</label>
+                                                    </div>
+
+                                                    <div class="quiz-item__block">
+                                                        <input type="radio" name="radio" id="checkbox-4" value="от 36 - 45 лет">
+                                                        <label for="checkbox-4">от 36 - 45 лет</label>
+                                                    </div>
+
+                                                    <div class="quiz-item__block">
+                                                        <input type="radio" name="radio" id="checkbox-5" value="от 46 - 60 лет">
+                                                        <label for="checkbox-5">от 46 - 60 лет</label>
+                                                    </div>
+
+                                                    <div class="quiz-item__block">
+                                                        <input type="radio" name="radio" id="checkbox-6" value="Мне более 60 лет">
+                                                        <label for="checkbox-6">Мне более 60 лет</label>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <!-- /.quiz-item__content -->
+
+                                                <div class="quiz-item__aroows">
+
+                                                    <div class="swiper-button-prev">Вернуться назад</div>
+                                                    <div class="swiper-button-next">Следующий шаг</div>
+
+                                                </div>
+                                                <!-- /.quiz-item__aroows -->
+
+                                            </div>
+                                            <!-- /.quiz-item -->
+
+                                        </div>
+
+                                    </div>
+                                
+                                    
+
+                                </div>
+                                <!-- /.requirements-quiz -->
+
+                            </div>
+                            <!-- /.requirements__wrapper -->
+
+                        </div>
+                        <!-- /.requirements -->
+
+                        <div class="methods">
+                            <h3 class="title">Какие существуют способы пополнения данной карты?</h3>
+
+                            <div class="methods__wrapper">
+
+                                <div class="methods-item">
+                                    <div class="methods-item__wrapper">
+                                        <div class="methods-item__head">
+                                            <div class="methods-item__img">
+                                                <img src="images/methods/img-1.png" alt="pay">
+                                            </div>
+                                            <div class="methods-item__txt">
+                                                Способ: <span>Связной</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="methods-item__txt methods-item__txt--mb">
+                                            Комиссия: <span>1.5%</span>
+                                        </div>
+    
+                                        <div class="methods-item__txt">
+                                            Срок зачисления: <span>Моментально</span>
+                                        </div>
+    
+                                        <div class="methods-item__num">01</div>
+                                    </div>
+                                </div>
+                                <!-- /.methods-item -->
+
+                                <div class="methods-item">
+                                    <div class="methods-item__wrapper">
+                                        <div class="methods-item__head">
+                                            <div class="methods-item__img">
+                                                <img src="images/methods/img-1.png" alt="pay">
+                                            </div>
+                                            <div class="methods-item__txt">
+                                                Способ: <span>Связной</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="methods-item__txt methods-item__txt--mb">
+                                            Комиссия: <span>1.5%</span>
+                                        </div>
+    
+                                        <div class="methods-item__txt">
+                                            Срок зачисления: <span>Моментально</span>
+                                        </div>
+    
+                                        <div class="methods-item__num">02</div>
+                                    </div>
+                                </div>
+                                <!-- /.methods-item -->
+
+                                <div class="methods-item">
+                                    <div class="methods-item__wrapper">
+                                        <div class="methods-item__head">
+                                            <div class="methods-item__img">
+                                                <img src="images/methods/img-2.png" alt="pay">
+                                            </div>
+                                            <div class="methods-item__txt">
+                                                Способ: <span>Связной</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="methods-item__txt methods-item__txt--mb">
+                                            Комиссия: <span>1.5%</span>
+                                        </div>
+    
+                                        <div class="methods-item__txt">
+                                            Срок зачисления: <span>Моментально</span>
+                                        </div>
+    
+                                        <div class="methods-item__num">03</div>
+                                    </div>
+                                </div>
+                                <!-- /.methods-item -->
+
+                                <div class="methods-item">
+                                    <div class="methods-item__wrapper">
+                                        <div class="methods-item__head">
+                                            <div class="methods-item__img">
+                                                <img src="images/methods/img-1.png" alt="pay">
+                                            </div>
+                                            <div class="methods-item__txt">
+                                                Способ: <span>Связной</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="methods-item__txt methods-item__txt--mb">
+                                            Комиссия: <span>1.5%</span>
+                                        </div>
+    
+                                        <div class="methods-item__txt">
+                                            Срок зачисления: <span>Моментально</span>
+                                        </div>
+    
+                                        <div class="methods-item__num">04</div>
+                                    </div>
+                                </div>
+                                <!-- /.methods-item -->
+
+                                <div class="methods-item">
+                                    <div class="methods-item__wrapper">
+                                        <div class="methods-item__head">
+                                            <div class="methods-item__img">
+                                                <img src="images/methods/img-2.png" alt="pay">
+                                            </div>
+                                            <div class="methods-item__txt">
+                                                Способ: <span>Автоплатеж с любой з/п карты</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="methods-item__txt methods-item__txt--mb">
+                                            Комиссия: <span>1.5%</span>
+                                        </div>
+    
+                                        <div class="methods-item__txt">
+                                            Срок зачисления: <span>Моментально</span>
+                                        </div>
+    
+                                        <div class="methods-item__num">05</div>
+                                    </div>
+                                </div>
+                                <!-- /.methods-item -->
+
+                            </div>
+                            <!-- /.methods__wrapper -->
+                        </div>
+                        <!-- /.methods -->
+
+                        <div class="questions">
+                            <span class="detail-page__anchor" id="question">Вопрос-ответ</span>
+                            <h3 class="title">Ответы на частые вопросы</h3>
+
+                            <div class="questions__wrapper">
+
+                                <div id="accordion" class="accordion"> 
+
+                                    <div class="accordion-item">
+                                        <div class="accordion-item__header">
+                                            <span>Вопрос №1</span>
+                                            Как узнать решение по заявке?
+                                        </div>
+                                        <!-- /.accordion-item__header -->
+                                        <div class="accordion-item__content">
+                                            <p>
+                                                1 После одобрения пользователю приходит сообщение от банка о том, что кредитная карта одобрена и ее можно забирать. В случае, если хочется узнать о статусе своей заявки пораньше, можно позвонить в колл-центр и узнать эту информацию там. Звонок в колл-центр бесплатен.
+                                            </p>
+                                        </div>
+                                        <!-- /.accordion-item__content -->
+                                    </div>
+                                    <!-- /.accordion-item -->
+                                    
+                                    <div class="accordion-item">
+                                        <div class="accordion-item__header">
+                                            <span>Вопрос №2</span>
+                                            Как узнать состояние счета и размер платежа?
+                                        </div>
+                                        <!-- /.accordion-item__header -->
+                                        <div class="accordion-item__content">
+                                            <p>
+                                                2 После одобрения пользователю приходит сообщение от банка о том, что кредитная карта одобрена и ее можно забирать. В случае, если хочется узнать о статусе своей заявки пораньше, можно позвонить в колл-центр и узнать эту информацию там. Звонок в колл-центр бесплатен.
+                                            </p>
+                                        </div>
+                                        <!-- /.accordion-item__content -->
+                                    </div>
+                                    <!-- /.accordion-item -->
+                                    
+                                    <div class="accordion-item">
+                                        <div class="accordion-item__header">
+                                            <span>Вопрос №3</span>
+                                            Как узнать состояние счета и размер платежа?
+                                        </div>
+                                        <!-- /.accordion-item__header -->
+                                        <div class="accordion-item__content">
+                                            <p>
+                                                3 После одобрения пользователю приходит сообщение от банка о том, что кредитная карта одобрена и ее можно забирать. В случае, если хочется узнать о статусе своей заявки пораньше, можно позвонить в колл-центр и узнать эту информацию там. Звонок в колл-центр бесплатен.
+                                            </p>
+                                        </div>
+                                        <!-- /.accordion-item__content -->
+                                    </div>
+                                    <!-- /.accordion-item -->
+                                    
+                                </div>
+
+                                <div class="all-block">
+                                    <div class="all-block__txt">
+                                        Задайте свой личный вопрос или посмотрите ответы на все часто-задаваемые вопросы
+                                    </div>
+                                    <div class="all-block__block">
+                                        <a href="#" class="button all-block__button all-block__button--doc all-block__no-icon">Задать вопрос</a>
+                                        <a href="#" class="button all-block__button all-block__button--all all-block__no-icon">Все вопросы</a>
+                                    </div>
+                                </div>
+                                <!-- /.all-block -->
+
+                            </div>
+                            <!-- /.questions__wrapper -->
+                        </div>
+                        <!-- /.questions -->
+
+                        <div class="feedback">
+                            <span class="detail-page__anchor" id="feedback">Отзывы</span>
+                            <h3 class="title">Отзывы владельцев карты</h3>
+
+                            <div class="feedback__wrapper">
+                                
+                                <div class="feedback-comment">
+                                    
+                                </div>
+                                <!-- /.feedback-comment -->
+
+                            </div>
+                            <!-- /.feedback__wrapper -->
+                        </div>
+                        <!-- /.feedback -->
 
                     </div>
                     <!-- /.detail-page__content -->

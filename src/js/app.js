@@ -26,6 +26,30 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  // Quiz-Swiper
+  function updSwiperNumericPaginationQuiz() {
+    this.el.querySelectorAll( '.swiper-counter' ).forEach(el => {
+      el.innerHTML = `<span class="count">${this.realIndex >= 9 ? '' : '0'}${this.realIndex + 1}</span>/<span class="total">${this.el.slidesQuantity > 10 ? '' : '0'}${this.el.slidesQuantity}</span>`;
+    });
+  }
+  
+  document.querySelectorAll( '.requirements-quiz.swiper-container' ).forEach( function( node ) {
+    node.slidesQuantity = node.querySelectorAll( '.swiper-slide' ).length;
+    new Swiper( node, {
+      spaceBetween: 30,
+      speed: 200,
+      simulateTouch: false,
+      on: { 
+        init:        updSwiperNumericPaginationQuiz,
+        slideChange: updSwiperNumericPaginationQuiz
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    });
+  });
+
   // Articles-Swiper
   const articlesSlide = document.querySelectorAll('.articles__tabs.swiper-container .swiper-slide');
   if (articlesSlide.length <= 4 && document.documentElement.clientWidth > 991) {
@@ -289,5 +313,36 @@ document.addEventListener("DOMContentLoaded", function() {
     header.classList.toggle('active');
     document.body.classList.toggle('hidden');
   });
+
+// Accordion
+class Accordion {
+  constructor(id, header) {
+    this.header = header;
+    this.id = id;
+    this.render();
+  }
+
+  render() {
+    function initAccordion(element, header) {
+      const mainElement = document.querySelector(element);
+      function actionClick(e) {
+        if (!e.target.classList.contains(header)) {
+          return;
+        }
+        e.preventDefault();
+        const headerHead = e.target;
+        const item = headerHead.parentElement;
+        item.classList.toggle('show');
+      };
+      function setupListeners() {
+        mainElement.addEventListener('click', actionClick);
+      }
+      setupListeners();
+    }
+    initAccordion(this.id, this.header);
+  }
+}
+
+const accordion = new Accordion('#accordion', 'accordion-item__header');
 
 });
