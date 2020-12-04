@@ -126,6 +126,15 @@
         &:last-child
             padding-right: 0
 
+.nav-1__list.selected
+    a 
+        color: $main
+
+.nav-2__list.selected
+    a 
+        &::after
+            opacity: 1
+
 @media ( max-width: 1210px )
 
     .nav-1

@@ -9,6 +9,7 @@
         background: #F7F9F9
         border-radius: 5px
         &__txt
+            padding-right: 15px
             font-weight: 600
             font-size: 1.4rem
             color: #7F8584
@@ -18,3 +19,10 @@
             font-size: 1.4rem
             color: $txt-color
 
+
+@media ( max-width: 576px )
+    .tariffs-item
+        flex-direction: column
+    .tariffs-item__descr 
+        margin-top: 8px
+        text-align: left
