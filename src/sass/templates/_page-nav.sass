@@ -2,22 +2,12 @@
     flex: 1
     min-width: 320px
     height: auto
+    position: sticky
+    top: 180px
     padding: 30px 0 35px 0
     background: #FFFFFF
     box-shadow: 0px 6px 26px rgba(0, 0, 0, 0.07)
     border-radius: 5px
-    &__ul
-        position: relative
-        padding-bottom: 23px
-        margin-bottom: 27px
-        &::after
-            content: ''
-            position: absolute
-            bottom: 0
-            left: 30px
-            right: 30px
-            height: 1px
-            background: #F3F3F3
     &__li 
         padding: 0 30px
         margin-bottom: 20px
@@ -50,8 +40,19 @@
         font-weight: bold
 
 .nav-prev
+    position: relative
     padding: 0 30px 0
+    padding-top: 23px
+    margin-top: 27px
     text-align: center
+    &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: 30px
+        right: 30px
+        height: 1px
+        background: #F3F3F3
     &__img 
         margin-bottom: 10px
         img 
@@ -61,8 +62,6 @@
             background-position-x: center
             background-position-y: 0
             padding: 22px 0 0 0
-    &__button
-
 
 @media ( max-width: 991px )
     .nav 
