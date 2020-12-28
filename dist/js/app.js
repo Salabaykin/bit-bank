@@ -301,7 +301,7 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   var rangeSliderValueElementSum = document.querySelector('#slider-range-value--sum p');
-  var rangeSliderSum = document.getElementById('slider-range--sum');
+  var rangeSliderSum = document.getElementById('#slider-range--sum');
   
   if (rangeSliderSum) {
     noUiSlider.create(rangeSliderSum, {
@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   var rangeSliderValueElementTerm = document.querySelector('#slider-range-value--term p');
-  var rangeSliderTerm = document.getElementById('slider-range--term');
+  var rangeSliderTerm = document.getElementById('#slider-range--term');
 
   if (rangeSliderTerm) {
     noUiSlider.create(rangeSliderTerm, {
@@ -361,37 +361,73 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.toggle('hidden');
   });
 
-// Accordion
-class Accordion {
-  constructor(id, header) {
-    this.header = header;
-    this.id = id;
-    this.render();
-  }
-
-  render() {
-    function initAccordion(element, header) {
-      const mainElement = document.querySelector(element);
-      function actionClick(e) {
-        if (!e.target.classList.contains(header)) {
-          return;
-        }
-        e.preventDefault();
-        const headerHead = e.target;
-        const item = headerHead.parentElement;
-        item.classList.toggle('show');
-      };
-      function setupListeners() {
-        mainElement.addEventListener('click', actionClick);
-      }
-      if (mainElement) {
-        setupListeners();
-      }
+  // Accordion
+  class Accordion {
+    constructor(id, header) {
+      this.header = header;
+      this.id = id;
+      this.render();
     }
-    initAccordion(this.id, this.header);
-  }
-}
 
-const accordion = new Accordion('#accordion', 'accordion-item__header');
+    render() {
+      function initAccordion(element, header) {
+        const mainElement = document.querySelector(element);
+        function actionClick(e) {
+          if (!e.target.classList.contains(header)) {
+            return;
+          }
+          e.preventDefault();
+          const headerHead = e.target;
+          const item = headerHead.parentElement;
+          item.classList.toggle('show');
+        };
+        function setupListeners() {
+          mainElement.addEventListener('click', actionClick);
+        }
+        if (mainElement) {
+          setupListeners();
+        }
+      }
+      initAccordion(this.id, this.header);
+    }
+  }
+
+  const accordion = new Accordion('#accordion', 'accordion-item__header');
+
+  // Link scroll
+  const navLink = document.querySelectorAll('.detail-page__wrapper .nav .nav__ul a[href^="#"]'),
+        navList = document.querySelectorAll('.detail-page__wrapper .nav__ul .nav__li');
+
+  if (navLink.length > 0) {
+
+    const elemUpdate = (event) => {
+      const target = event.target;
+      document.querySelector('.nav__li.active').classList.remove('active');
+      target.closest('.nav__li').classList.add('active');
+    };
+
+    navList.forEach(item => {
+      item.addEventListener('click', elemUpdate);
+    });
+
+    navLink.forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault();
+  
+          let href = this.getAttribute('href').substring(1);
+  
+          const scrollTarget = document.getElementById(href);
+  
+          const topOffset = document.querySelector('.header').offsetHeight;
+          const elementPosition = scrollTarget.getBoundingClientRect().top;
+          const offsetPosition = elementPosition - topOffset - 20;
+  
+          window.scrollBy({
+              top: offsetPosition,
+              behavior: 'smooth'
+          });
+      });
+    });
+  }
 
 });

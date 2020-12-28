@@ -22,12 +22,12 @@
             font-size: 1.6rem
         .calculator-info__item span 
             font-size: 1.6rem
-    &__button
-        padding: 15px 22px
-        font-size: 1.4rem
-    &__link 
-        display: flex
-        justify-content: space-between
+        .calculator-info__link
+            display: flex
+            justify-content: space-between
+            a.button
+                padding: 15px 22px
+                font-size: 1.4rem
 
 
 @media ( max-width: 768px )
@@ -35,6 +35,9 @@
         font-size: 1.4rem
 
 @media ( max-width: 576px )
-    .button.button--gray.payment-calculator__button
-        margin-top: 10px
+    .payment-calculator
+        &__wrapper
+            .calculator-info__link
+                a.button.button--gray
+                    margin-top: 10px
     
