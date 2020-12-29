@@ -274,53 +274,58 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Range
   const numPay = document.querySelector('.calculator-info__item > span.num-pay'),
-        numOverpayment = document.querySelector('.num-overpayment');
+        numProc = document.querySelector('.calculator-info__item > span.num-proc'),
+        numOverpayment = document.querySelector('.num-overpayment'),
+        creditPercent = document.querySelector('.calculator-info__item--name').dataset.percent;
 
+  numProc.textContent = `${creditPercent} %`;
   let arr = {
     val1: 0,
     val2: 0,
-    percent: 10,
+    percent: +creditPercent,
     pay: 0,
     overpayment: 0,
     getPercent() {
       const res = (this.val1 * this.percent) / 100;
-      this.overpayment = res;
-      numOverpayment.textContent = `${this.overpayment} руб.`;
+      this.overpayment = Math.ceil(res);
+      numOverpayment.textContent = `${this.overpayment} руб.п.`;
     },
     getPay() {
       let res;
       if (this.val2 > 0) {
-        res = (this.val1 + this.overpayment) / this.val2;
+        res = (this.val1 / this.val2) + (this.val1 * ((this.percent/100)/12));
       } else {
         res = this.val1 + this.overpayment;
       }
       this.pay = res;
-      numPay.textContent = `${Math.ceil(res)} руб.`;
+      numPay.textContent = `${Math.ceil(res)} руб.м.`;
       this.getPercent();
     }
   };
 
   const rangeSliderValueElementSum = document.querySelector('#slider-range-value--sum p');
+  const maxLimit = document.querySelector('#slider-range-value--sum').dataset.limit;
   const rangeSliderSum = document.getElementById('slider-range--sum');
   
   if (rangeSliderSum) {
+    let limit = maxLimit ? +maxLimit : 100000;
     noUiSlider.create(rangeSliderSum, {
-      start: [0, 100000],
+      start: [0, 1000],
       step: 1000,
       connect: true,
       range: {
           'min': [0],
-          'max': [400000]
+          'max': [limit]
       },
       format: wNumb({
         decimals: 0
       }),
     });
     rangeSliderSum.noUiSlider.on('update', function (values, handle) {
-        rangeSliderValueElementSum.innerHTML = values[handle];
-        const res = values[1];
-        arr.val1 = +res;
-        arr.getPay();
+      rangeSliderValueElementSum.innerHTML = values[handle];
+      const res = values[1];
+      arr.val1 = +res;
+      arr.getPay();
     });
   }
 
@@ -329,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   if (rangeSliderTerm) {
     noUiSlider.create(rangeSliderTerm, {
-      start: [0, 10],
+      start: [0, 12],
       connect: true,
       step: 1,
       range: {
@@ -346,10 +351,10 @@ document.addEventListener("DOMContentLoaded", function() {
         arr.val2 = +res;
         arr.getPay();
     });
-
-    const noUiOriginSum = document.querySelector('.range-item--sum .noUi-origin').style.display = 'none';
-    const noUiOriginTerm = document.querySelector('.range-item--term .noUi-origin').style.display = 'none';
   }
+
+  const noUiOriginSum = document.querySelector('.range-item--sum .noUi-origin').style.display = 'none';
+  const noUiOriginTerm = document.querySelector('.range-item--term .noUi-origin').style.display = 'none';
 
   // Menu 
   const header = document.querySelector('.header'),
