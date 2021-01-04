@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", function() {
     overpayment: 0,
     getPercent() {
       const res = (this.val1 * this.percent) / 100;
-      this.overpayment = Math.ceil(res);
+      this.overpayment = parseFloat(res).toFixed(2);
       numOverpayment.textContent = `${this.overpayment} руб.п.`;
     },
     getPay() {
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function() {
         res = this.val1 + this.overpayment;
       }
       this.pay = res;
-      numPay.textContent = `${Math.ceil(res)} руб.м.`;
+      numPay.textContent = `${parseFloat(res).toFixed(2)} руб.м.`;
       this.getPercent();
     }
   };
@@ -310,7 +310,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (rangeSliderSum) {
     let limit = maxLimit ? +maxLimit : 100000;
     noUiSlider.create(rangeSliderSum, {
-      start: [0, 1000],
+      start: [1000, 1000],
       step: 1000,
       connect: true,
       range: {
