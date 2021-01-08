@@ -278,17 +278,16 @@ document.addEventListener("DOMContentLoaded", function() {
         numOverpayment = document.querySelector('.num-overpayment'),
         creditPercent = document.querySelector('.calculator-info__item--name').dataset.percent;
 
-  numProc.textContent = `${creditPercent} %`;
   let arr = {
     val1: 0,
     val2: 0,
-    percent: +creditPercent,
+    percent: creditPercent.trim() !== '' ? +creditPercent.replace(/,/, '.') : 15,
     pay: 0,
     overpayment: 0,
     getPercent() {
       const res = (this.val1 * this.percent) / 100;
       this.overpayment = parseFloat(res).toFixed(2);
-      numOverpayment.textContent = `${this.overpayment} руб.п.`;
+      numOverpayment.textContent = `${this.overpayment} руб.`;
     },
     getPay() {
       let res;
@@ -298,10 +297,12 @@ document.addEventListener("DOMContentLoaded", function() {
         res = this.val1 + this.overpayment;
       }
       this.pay = res;
-      numPay.textContent = `${parseFloat(res).toFixed(2)} руб.м.`;
+      numPay.textContent = `${parseFloat(res).toFixed(2)} руб.`;
       this.getPercent();
     }
   };
+
+  numProc.textContent = `${creditPercent.trim() !== '' ? creditPercent : 15} %`;
 
   const rangeSliderValueElementSum = document.querySelector('#slider-range-value--sum p');
   const maxLimit = document.querySelector('#slider-range-value--sum').dataset.limit;
@@ -437,24 +438,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Modal 
   const popUp = () => {
+    const modalContent = document.querySelector('.modal__content'),
+          modalForm = modalContent.querySelector('.modal-form'),
+          errorMessage = 'Что-то пошло не так',
+          loadMessage = 'Идет отправка данных...',
+          successMessage = 'Спасибо! Мы скоро с вами свяжемся',
+          statusMessage = document.createElement('div');
+
     const modalData = {
-      popupLink: document.querySelectorAll('.popup'),
+      popupLink: document.querySelectorAll('[data-link-id]'),
       modal: document.querySelectorAll('.modal'),
-      marginSize() {
-        return window.innerWidth - document.documentElement.clientWidth;
-      },
-      closeModal(elem) {
+      closeBtn(elem) {
         const closeBtn = elem.querySelector('.modal-close');
         closeBtn.addEventListener('click', () => {
-          elem.classList.remove('modal-open');
+          this.closeModal(elem);
         });
+        this.modal.forEach(elem => {
+          elem.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal__window')) {
+              this.closeModal(elem);
+            }
+          });
+        });
+        
+      },
+      resetForm() {
+        if (modalForm) {
+          modalForm.reset();
+        }
+      },
+      closeModal(elem) {
+        elem.classList.remove('modal-open');
+        if (modalForm) {
+          modalForm.style = 'display: block';
+          statusMessage.remove();
+        }
+        this.resetForm();
       },
       openModal(attr) {
         this.modal.forEach((elem) => {
           const elemAttr = elem.getAttribute('data-modal-id');
           if (attr === elemAttr) {
             elem.classList.add('modal-open');
-            this.closeModal(elem);
+            this.closeBtn(elem);
           }
         });
       },
@@ -468,6 +494,49 @@ document.addEventListener("DOMContentLoaded", function() {
         modalData.openModal(attrLinkValue);
       });
     });
+
+    if (modalForm) {
+
+      const modalSubmit = modalContent.querySelector('button.button'),
+            checkboxPolicy = modalForm.querySelector('input[type=checkbox]');
+
+      if (checkboxPolicy) {
+        checkboxPolicy.addEventListener('change', () => {
+          checkboxPolicy.checked ? modalSubmit.disabled = false : modalSubmit.disabled = true;
+        });
+      }
+
+      modalForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        modalForm.style = 'display: none';
+        modalContent.append(statusMessage);
+        statusMessage.innerHTML = loadMessage;
+        const formData = new FormData(modalForm);
+        postData(formData)
+          .then((response) => {
+            if (response.status !== 200) {
+              throw new Error('Status network not 200!');
+            } 
+            statusMessage.textContent = successMessage;
+          })
+          .catch((error) => {
+            console.error(error);
+            statusMessage.textContent = errorMessage;
+          })
+          .finally(() => modalData.resetForm());
+      });
+  
+      const postData = (data) => {
+        return fetch('../ajax/ajax_orders.php', {
+            method: 'POST',
+            cache: 'default',
+            body: data,
+            credentials: 'include'
+        });
+      };
+
+    }
+
   };
 
   popUp();
