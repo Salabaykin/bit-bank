@@ -1093,29 +1093,108 @@
     </footer>
     <!-- /.footer -->
 
-    <div class="modal" data-modal-id="1">
-        <div class="modal__overlay"></div>
-        <div class="modal__content">
-            <div class="modal__close">&#10006;</div>
-            <div class="modal__body">
-                <h1>Первая модалка</h1>
-                <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. До его подпоясал продолжил она.</p>
-            </div>
-        </div>
-    </div>
-    <!-- /#popup -->
-
     <div class="modal" data-modal-id="2">
-        <div class="modal__overlay"></div>
-        <div class="modal__content">
-            <div class="modal__close">&#10006;</div>
-            <div class="modal__body">
-                <h1>Вторая модалка</h1>
-                <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. До его подпоясал продолжил она.</p>
+        <div class="modal__window">
+
+            <div class="modal__content">
+                <button class="modal-close">&#10006;</button>
+                
+                <form action="#" class="modal-form">
+
+                    <div class="modal-form__title">
+                        <h3>Заявка на карту</h3>
+                    </div>
+
+                    <div class="modal-form__item">
+                        <div class="modal-form__label">Цель кредита</div>
+                        <div class="modal-form__input">
+                            <div class="select">
+                                <select name="credit-purpose" id="credit-purpose">
+                                    <option value="Просто деньги">Просто деньги</option>
+                                    <option value="Рефинансирование кредита">Рефинансирование кредита</option>
+                                    <option value="Покупка нового автомобиля">Покупка нового автомобиля</option>
+                                    <option value="Покупка подержанного автомобиля">Покупка подержанного автомобиля</option>
+                                    <option value="Ипотека">Ипотека</option>
+                                    <option value="Рефинансирование ипотеки">Рефинансирование ипотеки</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-form__item">
+                        <div class="modal-form__label">Сумма кредита</div>
+                        <div class="modal-form__input">
+                            <input type="text" name="credit-amount" pattern="\d" id="credit-amount">
+                        </div>
+                    </div>
+
+                    <div class="modal-form__item">
+                        <div class="modal-form__label">Город получения кредита</div>
+                        <div class="modal-form__input">
+                            <input type="text" name="credit-city" pattern="^[А-Яа-яЁё\s]{2,}$" id="credit-city">
+                        </div>
+                    </div>
+
+                    <div class="modal-form__subtitle">
+                        Контактные данные
+                    </div>
+
+                    <div class="modal-form__item">
+                        <div class="modal-form__label">Ф.И.О.</div>
+                        <div class="modal-form__input">
+                            <input type="text" name="credit-surname" pattern="^[А-Яа-яЁё\s]{2,}$" id="credit-surname" required>
+                        </div>
+                    </div>
+
+                    <div class="modal-form__item">
+                        <div class="modal-form__label">Электронная почта</div>
+                        <div class="modal-form__input">
+                            <input type="email" name="credit-email" pattern="^[\w\-]{2,}@\w{2,}\.\w{2,}$" id="credit-email" required>
+                        </div>
+                    </div>
+
+                    <div class="modal-form__item">
+                        <div class="modal-form__label">Телефон для связи</div>
+                        <div class="modal-form__input">
+                            <input type="tel" name="credit-tel" pattern="^\+?[78]([-()]*\d){10}$" id="credit-tel" required>
+                        </div>
+                    </div>
+
+                    <div class="modal-form__submit">
+                        <button class="button">Отправить</button>
+                        <div class="modal-form__policy">
+                            <label class="checkbox">
+                                <input name="agreement" type="checkbox" readonly="" checked="">
+                                <div class="checkbox-label">
+                                    <span>Согласен с <a href="#" target="_blank" rel="noopener noreferrer">правилами предоставления информации</a></span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                </form>
+
             </div>
+            <!-- /.modal__content -->
+
         </div>
     </div>
-    <!-- /#popup -->
+    <!-- /.modal -->
+
+    <div class="modal" data-modal-id="1">
+        <div class="modal__window">
+
+            <div class="modal__content">
+                <button class="modal-close">&#10006;</button>
+                
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit architecto optio similique dicta fugit atque.
+
+            </div>
+            <!-- /.modal__content -->
+
+        </div>
+    </div>
+    <!-- /.modal -->
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="js/swiper-bundle.min.js"></script>

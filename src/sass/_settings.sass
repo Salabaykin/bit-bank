@@ -57,13 +57,26 @@ a, img, li, button, span, select
     -moz-user-select: none
     -ms-user-select: none
 
-select 
+select
     -webkit-appearance: none
     -moz-appearance: none
     appearance: none
 
 select::-ms-expand 
     display: none
+
+.select
+    position: relative
+    &::before
+        content: ''
+        position: absolute
+        top: 50%
+        right: 25px
+        transform: translateY(-50%)
+        width: 10px
+        height: 10px
+        background: url('../images/icons/arrow-select.svg')
+        background-size: cover
 
 .main 
     padding-top: 155px

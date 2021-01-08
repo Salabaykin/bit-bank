@@ -1093,8 +1093,6 @@
     </footer>
     <!-- /.footer -->
 
-
-
     <div class="modal" data-modal-id="2">
         <div class="modal__window">
 
@@ -1108,30 +1106,32 @@
                     </div>
 
                     <div class="modal-form__item">
-                        <div class="modal-form__label">Кредитный лимит</div>
+                        <div class="modal-form__label">Цель кредита</div>
                         <div class="modal-form__input">
-                            <select name="credit-purpose" id="credit-purpose">
-                                <option value="Просто деньги">Просто деньги</option>
-                                <option value="Рефинансирование кредита">Рефинансирование кредита</option>
-                                <option value="Покупка нового автомобиля">Покупка нового автомобиля</option>
-                                <option value="Покупка подержанного автомобиля">Покупка подержанного автомобиля</option>
-                                <option value="Ипотека">Ипотека</option>
-                                <option value="Рефинансирование ипотеки">Рефинансирование ипотеки</option>
-                            </select>
+                            <div class="select">
+                                <select name="credit-purpose" id="credit-purpose">
+                                    <option value="Просто деньги">Просто деньги</option>
+                                    <option value="Рефинансирование кредита">Рефинансирование кредита</option>
+                                    <option value="Покупка нового автомобиля">Покупка нового автомобиля</option>
+                                    <option value="Покупка подержанного автомобиля">Покупка подержанного автомобиля</option>
+                                    <option value="Ипотека">Ипотека</option>
+                                    <option value="Рефинансирование ипотеки">Рефинансирование ипотеки</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
                     <div class="modal-form__item">
                         <div class="modal-form__label">Сумма кредита</div>
                         <div class="modal-form__input">
-                            <input type="text" name="credit-amount" id="credit-amount">
+                            <input type="text" name="credit-amount" pattern="\d" id="credit-amount">
                         </div>
                     </div>
 
                     <div class="modal-form__item">
                         <div class="modal-form__label">Город получения кредита</div>
                         <div class="modal-form__input">
-                            <input type="text" name="credit-city" id="credit-city">
+                            <input type="text" name="credit-city" pattern="^[А-Яа-яЁё\s]{2,}$" id="credit-city">
                         </div>
                     </div>
 
@@ -1142,21 +1142,21 @@
                     <div class="modal-form__item">
                         <div class="modal-form__label">Ф.И.О.</div>
                         <div class="modal-form__input">
-                            <input type="text" name="credit-surname" id="credit-surname" required>
+                            <input type="text" name="credit-surname" pattern="^[А-Яа-яЁё\s]{2,}$" id="credit-surname" required>
                         </div>
                     </div>
 
                     <div class="modal-form__item">
                         <div class="modal-form__label">Электронная почта</div>
                         <div class="modal-form__input">
-                            <input type="email" name="credit-email" id="credit-email" required>
+                            <input type="email" name="credit-email" pattern="^[\w\-]{2,}@\w{2,}\.\w{2,}$" id="credit-email" required>
                         </div>
                     </div>
 
                     <div class="modal-form__item">
                         <div class="modal-form__label">Телефон для связи</div>
                         <div class="modal-form__input">
-                            <input type="tel" name="credit-tel" id="credit-tel" required>
+                            <input type="tel" name="credit-tel" pattern="^\+?[78]([-()]*\d){10}$" id="credit-tel" required>
                         </div>
                     </div>
 
@@ -1195,8 +1195,6 @@
         </div>
     </div>
     <!-- /.modal -->
-
-  
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="js/swiper-bundle.min.js"></script>
